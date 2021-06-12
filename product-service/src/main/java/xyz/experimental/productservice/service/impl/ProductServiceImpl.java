@@ -4,11 +4,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import xyz.experimental.commonutil.IDGenerator;
 import xyz.experimental.productservice.model.Product;
 import xyz.experimental.productservice.model.dto.ProductDTO;
 import xyz.experimental.productservice.repository.ProductRepository;
 import xyz.experimental.productservice.service.ProductService;
-import xyz.experimental.productservice.util.ProductUtil;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -17,12 +17,12 @@ public class ProductServiceImpl implements ProductService {
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProductUtil productUtil;
+	private IDGenerator idGenerator;
 
 	@Override
 	public ProductDTO createProduct(ProductDTO productDTO) {
 		
-		productDTO.setProductId(productUtil.generateProductId());
+		productDTO.setProductId(idGenerator.generateProductId());
 		
 		Product product = new Product();
 		BeanUtils.copyProperties(productDTO, product);

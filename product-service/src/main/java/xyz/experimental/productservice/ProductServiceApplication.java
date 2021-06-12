@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
-@SpringBootApplication(scanBasePackages = "xyz.experimental.productservice")
+@SpringBootApplication(scanBasePackages = {"xyz.experimental.productservice", "xyz.experimental.commonutil"})
 public class ProductServiceApplication {
 
 	public static void main(String[] args) {
