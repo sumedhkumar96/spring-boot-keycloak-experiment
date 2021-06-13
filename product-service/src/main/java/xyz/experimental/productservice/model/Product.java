@@ -9,12 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -29,26 +29,27 @@ public class Product {
 	@Column(name = "id")
 	private Long id;
 
-	@JsonIgnore
 	@CreatedDate
 	@Column(name = "created_on", updatable = false)
 	private LocalDateTime createdOn;
 
-	@JsonIgnore
 	@LastModifiedDate
 	@UpdateTimestamp
 	@Column(name = "updated_on")
 	private LocalDateTime updatedOn;
 	
+	@NotBlank
 	@Column(name = "product_id")
 	private String productId;
 
+	@NotBlank
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "description")
 	private String description;
 
+	@NotBlank
 	@Column(name = "price")
 	private BigDecimal price;
 
