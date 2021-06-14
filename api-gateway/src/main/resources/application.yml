@@ -8,19 +8,19 @@ spring:
 #                     ribbon:
 #                          enabled: false
       gateway:
-#            routes:
-#                 - id: config-server
-#                   predicates:
-#                     - Path=/
-#                   uri: lb://config-server
-#                 - id: product-service
-#                   predicates:
-#                     - Path=/api/products
-#                   uri: lb://product-service
-#                 - id: user-service
-#                   predicates:
-#                     - Path=/api/users
-#                   uri: lb://user-service
+            routes:
+                 - id: config-server
+                   predicates:
+                     - Path=/
+                   uri: lb://config-server
+                 - id: product-service
+                   predicates:
+                     - Path=/api/products
+                   uri: lb://product-service
+                 - id: user-service
+                   predicates:
+                     - Path=/api/users
+                   uri: lb://user-service
 
             discovery:
                     locator:
