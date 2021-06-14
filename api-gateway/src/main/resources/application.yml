@@ -1,0 +1,36 @@
+spring:
+      application:
+                 name: api-gateway
+      cloud: 
+          config:
+               enabled: false
+#          loadbalancer:
+#                     ribbon:
+#                          enabled: false
+      gateway:
+#            routes:
+#                 - id: config-server
+#                   predicates:
+#                     - Path=/
+#                   uri: lb://config-server
+#                 - id: product-service
+#                   predicates:
+#                     - Path=/api/products
+#                   uri: lb://product-service
+#                 - id: user-service
+#                   predicates:
+#                     - Path=/api/users
+#                   uri: lb://user-service
+
+            discovery:
+                    locator:
+                           enabled: true
+                           lowerCaseServiceId: true
+
+server:
+      port: 8080
+
+eureka:
+    instance:
+         instanceId: ${spring.application.name}:${random.uuid}
+                 
