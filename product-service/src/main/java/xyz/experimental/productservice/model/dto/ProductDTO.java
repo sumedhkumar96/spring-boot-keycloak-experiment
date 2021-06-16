@@ -2,6 +2,7 @@ package xyz.experimental.productservice.model.dto;
 
 import java.math.BigDecimal;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -15,7 +16,7 @@ public class ProductDTO {
 	
 	private String description;
 	
-	@NotBlank
+	@NotNull
 	private BigDecimal price;
 
 }

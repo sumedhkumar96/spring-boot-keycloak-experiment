@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -49,7 +50,7 @@ public class Product {
 	@Column(name = "description")
 	private String description;
 
-	@NotBlank
+	@NotNull
 	@Column(name = "price")
 	private BigDecimal price;
 

@@ -10,7 +10,7 @@ spring:
                             searchLocations: file:..\\..\\..\\..\\configs
 
 server:
-      port: 8888
+      port: 0
 
 eureka:
     instance:
