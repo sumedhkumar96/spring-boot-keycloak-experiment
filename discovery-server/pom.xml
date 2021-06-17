@@ -60,4 +60,10 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>local-repo</id>
+			<url>file://C:/Users/SUMEDHA/.m2/repository</url>
+		</repository>
+	</repositories>
 </project>

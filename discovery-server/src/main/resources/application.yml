@@ -3,11 +3,9 @@ spring:
             name: discovery-server
 
 server:
-   port: 8761
+   port: 8766
 
 eureka:
    client:
       registerWithEureka: false
       fetchRegistry: false
-   instance:
-         hostname: localhost

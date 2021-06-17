@@ -19,6 +19,8 @@ spring:
       show-sql: true
       
 eureka:
-   client:
-       service-url:
-             defaultZone: http://localhost:8761/eureka/
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8766/eureka
+    registerWithEureka: true
+    fetchRegistry: true
