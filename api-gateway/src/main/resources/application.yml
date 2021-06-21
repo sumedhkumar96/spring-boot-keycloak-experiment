@@ -1,6 +1,25 @@
 spring:
       application:
                  name: api-gateway
+      security:
+          oauth2:
+             client:
+                provider:
+                    keycloak:
+                       issuerUri: http://localhost:8090/auth/realms/experimental-realm
+                       tokenUri: http://localhost:8090/auth/realms/experimental-realm/protocol/openid-connect/token
+                       authorizationUri: http://localhost:8090/auth/realms/experimental-realm/protocol/openid-connect/auth
+                       jwkSetUri: http://localhost:8090/auth/realms/experimental-realm/protocol/openid-connect/certs
+                registration:
+                    keycloak:
+                       clientId: experimental-client
+                       clientSecret: 8f992ebe-6fa3-45f1-b8b7-47625c3bdb26
+                       authorizationGrantType: authorization_code
+                       redirectUri: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                       scope: openid
+                        
+#      main:
+#         webApplicationType: reactive
       cloud: 
           config:
                enabled: false
@@ -29,8 +48,12 @@ spring:
                            enabled: true
                            lowerCaseServiceId: true
 
+              defaultFilters: TokenRelay 
+
 server:
       port: 8080
+      servlet:
+             context-path: /
 
 eureka:
     client:
@@ -38,6 +61,8 @@ eureka:
              defaultZone: http://localhost:8766/eureka/
         registerWithEureka: true
         fetchRegistry: true
+        region: default
+        registryFetchIntervalSeconds: 5
     instance:
         instanceId: ${spring.application.name}:${random.uuid} 
 

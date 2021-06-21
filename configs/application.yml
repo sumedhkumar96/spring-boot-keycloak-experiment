@@ -24,3 +24,5 @@ eureka:
       defaultZone: http://localhost:8766/eureka
     registerWithEureka: true
     fetchRegistry: true
+    region: default
+    registryFetchIntervalSeconds: 5

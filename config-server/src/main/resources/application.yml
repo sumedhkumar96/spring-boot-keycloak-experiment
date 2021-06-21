@@ -3,14 +3,24 @@ spring:
                  name: config-server
       profiles: 
                 active: native
+      security:
+            basic:
+                enabled: true
       cloud:
            config:
                  server:
                        native:
                             searchLocations: file:..\\..\\..\\..\\configs
+           security:
+                 user:
+                     name: admin
+                     password: password
+
 
 server:
       port: 0
+      servlet:
+             context-path: /
 
 eureka:
     instance:
@@ -20,3 +30,4 @@ eureka:
             defaultZone: http://localhost:8766/eureka
          registerWithEureka: true
          fetchRegistry: false
+         region: default
